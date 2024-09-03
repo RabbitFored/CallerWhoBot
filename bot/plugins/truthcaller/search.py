@@ -45,7 +45,9 @@ async def truth(client, message):
         if not len(data) == 0:
            name = data[0].get("name", "N/A")
            is_spam = data[0].get("suspicious_spam", False)
+           logger.info(f"{data}")
 
+    
     geo = phonenumbers.geocoder.description_for_number(parsed_number,  
            'en')
     carrier = phonenumbers.carrier.name_for_number(parsed_number, 
@@ -65,7 +67,7 @@ async def truth(client, message):
   except Exception as e:
     logger.exception(e)
     await message.reply(
-      "Something went wrong, Contact support @ostrichdiscussion",
+      "Please send the number in international format like :`+911234567890`",
       reply_markup=InlineKeyboardMarkup([[
         InlineKeyboardButton("Support Group",
                              url="https://t.me/ostrichdiscussion")
