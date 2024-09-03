@@ -7,6 +7,7 @@ from bot.core.utils import generate_keyboard
 
 @Client.on_message(fltr.cmd(["start"]))
 async def start(client, message):
+    
     text = strings.get("start_txt", user=message.from_user.mention)
     keyboard = generate_keyboard(strings.get("start_btn"))
 

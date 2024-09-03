@@ -11,20 +11,34 @@ authors:
 
 #commons
 start_txt: |-
-   **Hello {user} 👋 !
-   I am a simple Telegram Bot.\n
-   Hit /help to know more on using me.**
+   **Hi {user}!**
+   I am TruthCaller - a caller info bot.
+
+   Send me any mobile number in international format to get its information.
+
+   **Ex:** `+911234567890`
 start_btn: |-
    [HELP](data::ct_help)
 
 help_txt: |-
-   **Here is an detailed guide on using me.**
+   Here is a detailed guide to use me.
+   You can use me to get information of unknown mobile numbers.
+
+   Send any mobile number in international format with spaces to search.
+   **Ex:** `+911234567890`
 
    **Available Commands:**
-   /start : Check if I am alive
-   /help : Send you this text!
-   /about : About me
-   /donate : Donate us
+   /start : Check if I'm alive!
+   /help : Get this text
+
+   /new : Create new account
+   /login : Login with existing account
+   /logout : Remove existing account
+
+   /stats : Check my usage status
+   /about : Know more about me
+   /donate : Donate my developers and keep me alive.
+   
 help_btn: |-
    [Get Help](url::{group_url})
 ##extended help msg for bot administrators
@@ -35,7 +49,7 @@ admin_help_txt: |-
 
 about_txt: |+
    **About Me :**
-   \n  - **Name**      : Telegram-Bot
+   \n  - **Name**      : TruthCaller
    \n  - **Creator**   : @theostrich
    \n  - **Language**  : Python 3
    \n  - **Library**   : [Pyrogram](https://pyrogram.org/)

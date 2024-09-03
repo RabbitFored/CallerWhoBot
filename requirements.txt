@@ -10,3 +10,4 @@ regex
 python-dotenv
 motor
 cachetools
+phonenumbers
