@@ -3,8 +3,18 @@ from pyrogram import Client, filters
 from bot import CONFIG, strings
 from bot.core import filters as fltr
 from bot.core.utils import generate_keyboard
+from bot.core import database as db
 
-
+@Client.on_message(filters.private & ~ filters.me , group=-100)
+async def user_load(client, message):
+    userID = message.from_user.id
+    user = await db.get_user(userID, fetch_info=True)
+    if not user:
+        await db.add_user(message)
+    else:
+        await user.refresh(message)
+    message.continue_propagation()
+    
 @Client.on_message(fltr.cmd(["start"]))
 async def start(client, message):
     
@@ -48,7 +58,7 @@ async def aboutTheBot(client, message):
     channel_url = CONFIG.settings["links"]["channel_url"]
     group_url = CONFIG.settings["links"]["group_url"]
 
-    text = strings.get("about_txt")
+    text = strings.get("about_txt", name = client.me.first_name)
     keyboard = generate_keyboard(
         strings.get("about_btn", channel_url=channel_url, group_url=group_url))
 

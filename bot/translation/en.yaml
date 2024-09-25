@@ -49,7 +49,7 @@ admin_help_txt: |-
 
 about_txt: |+
    **About Me :**
-   \n  - **Name**      : TruthCaller
+   \n  - **Name**      : {name}
    \n  - **Creator**   : @theostrich
    \n  - **Language**  : Python 3
    \n  - **Library**   : [Pyrogram](https://pyrogram.org/)
