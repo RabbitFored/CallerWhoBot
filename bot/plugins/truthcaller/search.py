@@ -45,7 +45,6 @@ async def truth(client, message):
         if not len(data) == 0:
            name = data[0].get("name", "N/A")
            is_spam = data[0].get("suspicious_spam", False)
-           logger.info(f"{data}")
 
     
     geo = phonenumbers.geocoder.description_for_number(parsed_number,  
