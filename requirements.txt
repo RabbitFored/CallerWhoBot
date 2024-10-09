@@ -1,4 +1,3 @@
-pyrofork
 tgcrypto-pyrofork
 dnspython==2.6.1
 Quart==0.19.6

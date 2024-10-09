@@ -33,6 +33,20 @@ phone_filter = filters.create(ph_match)
 
 @Client.on_message(phone_filter)
 async def truth(client, message):
+  user = await db.get_user(message.from_user.id)
+  limits = user.get_limits()
+  use_credits = False
+  if user.usage.get("search", 0) >= limits.get("search", 0):
+    use_credits = user.settings.get("use_credits", False)
+    if not use_credits:
+        await message.reply("You have reached your limit for today. Try again tomorrow.", reply_markup=generate_keyboard("[Continue with credits](data::credits_on)"))
+        return
+    else:
+      if user.credits.value == 0:
+        await message.reply("You have reached your limit for today. Try again tomorrow. Buy Credits for more usage")
+        return
+    
+    
   try:
     parsed_number = phonenumbers.parse(get_text_number(message))
     phone_number = phonenumbers.format_number(parsed_number, phonenumbers.PhoneNumberFormat.E164)
@@ -63,10 +77,14 @@ async def truth(client, message):
          '''
     await message.reply(text,quote= True, disable_web_page_preview =True, reply_markup = generate_keyboard(f"[Locate](url::{'https://www.google.com/maps/place/'+ urllib.parse.quote(geo)})"))
     await db.inc_stat("search", 1)
+    await user.usage.inc("search",value=1, refresh_period="1d", round_to_start=True)
+    if use_credits:
+      await user.credits.consume(1)
+    
   except Exception as e:
     logger.exception(e)
     await message.reply(
-      "Please send the number in international format like :`+911234567890`",
+      "Please send the number in international format like : `+911234567890`",
       reply_markup=InlineKeyboardMarkup([[
         InlineKeyboardButton("Support Group",
                              url="https://t.me/ostrichdiscussion")

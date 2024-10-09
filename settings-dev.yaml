@@ -7,7 +7,7 @@ pyrogram:
 
 plugins:
    load_modules: false
-   dir: "myplugins"
+   dir: "bot/plugins"
    repo:
      - "https://github.com/RabbitFored/telegram-bot-plugins.git"
    include: ['admin', 'misc', 'stats', 'subscription']
@@ -64,10 +64,7 @@ subscriptions:
         title: "Yearly"
         validity: "12,month"
     limits:
-      max_mails: 10
-      custom_domains: true
-      send: true
-
+      search: 10
 filters:
   accept_tc: true
   ban: true

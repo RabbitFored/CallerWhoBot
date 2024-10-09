@@ -62,7 +62,7 @@ subscriptions:
 - name: "free"
   data:
     limits:
-      max_mails: 3  
+      search: 5
 - name: "premium"
   data:
     prices: 
@@ -71,9 +71,7 @@ subscriptions:
       - price: "200,xtr"
         validity: "3,month"
     limits:
-      max_mails: 10
-      custom_domains: true
-      send: true
+      search: 20
       
 filters:
   accept_tc: true
