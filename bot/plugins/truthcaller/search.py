@@ -11,7 +11,7 @@ import phonenumbers.carrier
 import phonenumbers.timezone
 import urllib.parse
 from bot.core.utils import generate_keyboard
-
+from phonenumbers import NumberParseException
 new_line = "\n"
 
 def get_text_number(message):
@@ -36,7 +36,7 @@ async def truth(client, message):
   user = await db.get_user(message.from_user.id)
   limits = user.get_limits()
   use_credits = False
-  #print(user.usage.get("search", 0) , limits.get("search", 0))
+  print(user.usage.get("search", 0) , limits.get("search", 0))
   if user.usage.get("search", 0) >= limits.get("search", 0):
     await message.reply("You have reached your limit for today. Try again tomorrow.", reply_markup=generate_keyboard("[Buy Premium](url::https://t.me/quantumbackdoor/)"))
     return
@@ -84,12 +84,12 @@ async def truth(client, message):
     await user.usage.inc("search",value=1, refresh_period="1d", round_to_start=True)
     if use_credits:
       await user.credits.consume(1)
-    
-  except Exception as e:
-    logger.exception(e)
+  except NumberParseException:
     await message.reply(
       "Please send the number in international format like : `+911234567890`",
       reply_markup=InlineKeyboardMarkup([[
         InlineKeyboardButton("Support Group",
                              url="https://t.me/ostrichdiscussion")
       ]]))
+  except Exception as e:
+    logger.exception(e)
