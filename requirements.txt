@@ -1,5 +1,6 @@
 tgcrypto-pyrofork
 dnspython==2.6.1
+pyrofork
 Quart==0.19.6
 PyYAML==6.0
 regex
