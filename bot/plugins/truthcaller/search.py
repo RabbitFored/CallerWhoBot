@@ -36,15 +36,19 @@ async def truth(client, message):
   user = await db.get_user(message.from_user.id)
   limits = user.get_limits()
   use_credits = False
+  #print(user.usage.get("search", 0) , limits.get("search", 0))
   if user.usage.get("search", 0) >= limits.get("search", 0):
-    use_credits = user.settings.get("use_credits", False)
-    if not use_credits:
-        await message.reply("You have reached your limit for today. Try again tomorrow.", reply_markup=generate_keyboard("[Continue with credits](data::credits_on)"))
-        return
-    else:
-      if user.credits.value == 0:
-        await message.reply("You have reached your limit for today. Try again tomorrow. Buy Credits for more usage")
-        return
+    await message.reply("You have reached your limit for today. Try again tomorrow.", reply_markup=generate_keyboard("[Buy Premium](url::https://t.me/quantumbackdoor/)"))
+    return
+     #   return
+    #use_credits = user.settings.get("use_credits", False)
+    #if not use_credits:
+     #   await message.reply("You have reached your limit for today. Try again tomorrow.", reply_markup=generate_keyboard("[Continue with credits](data::credits_on)"))
+     #   return
+    #else:
+    #  if user.credits.value == 0:
+    #    await message.reply("You have reached your limit for today. Try again tomorrow. Buy Credits for more usage")
+    #    return
     
     
   try:

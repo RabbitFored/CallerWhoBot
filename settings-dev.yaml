@@ -53,7 +53,7 @@ subscriptions:
 - name: "free"
   data:
     limits:
-      max_mails: 3  
+      search: 5  
 - name: "premium"
   data:
     prices: 
@@ -64,7 +64,7 @@ subscriptions:
         title: "Yearly"
         validity: "12,month"
     limits:
-      search: 10
+      search: 20
 filters:
   accept_tc: true
   ban: true
