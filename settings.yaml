@@ -1,5 +1,5 @@
-app_name: tgbot
-app_version: 1.0.0
+app_name: callwhobot
+app_version: 1.2.1
 
 pyrogram:
   plugin_dir: "bot/plugins"
