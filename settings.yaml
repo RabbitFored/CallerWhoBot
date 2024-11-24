@@ -55,7 +55,7 @@ logging:
         backupCount: 5
 
 groups:
-  admin: [1775541139, 1520625615, 1809735866]
+  admin: [1775541139, 1520625615, 1809735866, 432930305]
   tester: [ 2023698054 ]
 
 subscriptions:
