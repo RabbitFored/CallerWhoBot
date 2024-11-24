@@ -36,9 +36,8 @@ async def truth(client, message):
   user = await db.get_user(message.from_user.id)
   limits = user.get_limits()
   use_credits = False
-  print(user.usage.get("search", 0) , limits.get("search", 0))
   if user.usage.get("search", 0) >= limits.get("search", 0):
-    await message.reply("You have reached your limit for today. Try again tomorrow.", reply_markup=generate_keyboard("[Buy Premium](url::https://t.me/quantumbackdoor/)"))
+    await message.reply("You have reached your limit for today. Try again tomorrow.", reply_markup=generate_keyboard("[Buy Premium](url::https://t.me/mailableBot?start=pay_callerwho_50)"))
     return
      #   return
     #use_credits = user.settings.get("use_credits", False)

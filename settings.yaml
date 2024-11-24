@@ -15,7 +15,7 @@ pyrogram:
   #    port: 1234
 
 plugins:
-   load_modules: true
+   load_modules: false
    dir: "bot/plugins"
    repo:
      - "https://github.com/RabbitFored/telegram-bot-plugins.git"
