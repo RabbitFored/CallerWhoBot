@@ -11,7 +11,7 @@ def eyecon_search(num):
       "e-auth-k": os.environ['e-auth-k'],
       "e-auth-c": os.environ['e-auth-c'],
       "e-auth-v": os.environ['e-auth-v'],
-      "e-auth": os.environ['e-auth']",
+      "e-auth": os.environ['e-auth'],
       "content-type": "application/x-www-form-urlencoded",
       "Host": "api.eyecon-app.com"
   }
