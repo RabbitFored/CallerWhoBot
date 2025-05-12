@@ -2,9 +2,9 @@ import requests
 import os
 
 def eyecon_search(num):
-  url = f"https://api.eyecon-app.com/app/getnames.jsp?cli={num}&lang=en&is_callerid=true&is_ic=true&cv=vc_510_vn_4.0.510_a&requestApi=URLconnection&source=MenifaFragment"
+  url = f"https://api.eyecon-app.com/app/getnames.jsp?cli={num}&&lang=en&is_callerid=true&is_ic=false&cv=vc_542_vn_4.0.542_a&requestApi=URLconnection&source=RegistrationGetMyName"
   headers = {
-      "User-Agent": "Dalvik/2.1.0 (Linux; U; Android 10; GM1903 Build/QKQ1.190716.003)",
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
       "Accept": "application/json",
       "Accept-Encoding": "gzip",
       "Connection": "Keep-Alive",
